@@ -1,0 +1,11 @@
+<a href="/todonts/new">New Todont</a>
+<ul>
+  {{#each todonts}}
+    <li>Description:<a href="/todonts/{{@index}}">{{description}}</a></li>
+    <li>Urgent: {{urgent}}</li>
+    <form method="POST" action="/todonts/{{@index}}?_method=DELETE">
+      <button>DELETE</button>
+    </form>
+    <br>
+  {{/each}}
+</ul>

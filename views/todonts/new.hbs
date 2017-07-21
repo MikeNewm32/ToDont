@@ -1,0 +1,20 @@
+<h1>Create a New Todont!</h1>
+
+<form method="POST" action="/todonts">
+
+<div>
+    <label for="description">Description: </label>
+    <input name="description"></input>
+</div>
+<div>
+<label for="urgent">Urgent: </label>
+<span>Yes</span><input type="radio" name="urgent" value="true" checked>
+<span>No</span><input type="radio" name="urgent" value="false">
+</div>
+
+    <button>Submit</button>
+
+</form>
+<br/><br/>
+
+<a href="/todonts">Go Back!</a>
