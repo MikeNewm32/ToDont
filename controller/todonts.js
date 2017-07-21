@@ -5,7 +5,7 @@ const data = require('../data');
 /* INDEX TODONTS */
 router.get('/', function(req,res) {
   res.render('todonts/index', {
-    todonts: data.seededTodonts
+    todonts: data.seededToDonts
   });
 });
 
@@ -17,7 +17,7 @@ router.get('/new', (req, res) => {
 /* SHOW TODONT */
 router.get('/:id', (req, res) => {
   const id = req.params.id;
-  const todont = data.seededTodonts[id];
+  const todont = data.seededToDonts[id];
   res.render('todonts/show',{
     todont: todont,
     id: id
@@ -27,7 +27,7 @@ router.get('/:id', (req, res) => {
 /* EDIT TODONT */
 router.get('/:id/edit', (req, res) => {
   const id = req.params.id;
-  const todont = data.seededTodonts[id];
+  const todont = data.seededToDonts[id];
   res.render("todonts/edit", {
     todont: todont,
     id: id
@@ -39,7 +39,7 @@ router.put('/:id', (req, res) => {
   // We have the ID
   const id = req.params.id;
   // Use the id to grab specific index in array
-  const todont = data.seededTodonts[id];
+  const todont = data.seededToDonts[id];
   // Update the description and urgent values
   todont.description = req.body.description;
   todont.urgent = req.body.urgent;
@@ -56,14 +56,14 @@ router.post('/', (req, res) => {
     description: req.body.description,
     urgent: req.body.urgent
   };
-  data.seededTodonts.push(newTodont);
+  data.seededToDonts.push(newTodont);
 
   res.redirect("/todonts");
 });
 
 /* DELETE TODONT */
 router.delete('/:id', (req, res) => {
-  data.seededTodonts.splice(req.params.id, 1);
+  data.seededToDonts.splice(req.params.id, 1);
 
   res.method= "GET";
   res.redirect("/todonts");
